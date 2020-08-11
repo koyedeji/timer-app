@@ -1,31 +1,23 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2020: true,
-    node: true,
-  },
+  root: true,
   extends: [
     '@react-native-community',
     'plugin:react/recommended',
-    'airbnb-typescript',
-    'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
     'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
-  },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 11,
+    ecmaVersion: 2020,
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true, // Allows for the parsing of JSX
+    },
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'prettier/prettier': 'error',
+    '@typescript-eslint/no-empty-function': 0,
   },
 };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 interface ButtonProps {
   title?: string;
@@ -7,7 +7,19 @@ interface ButtonProps {
   onPress: () => void;
 }
 
-export const Button = ({ title, color, onPress }: ButtonProps) => {
+const styles = StyleSheet.create({
+  button: {
+    borderWidth: 2,
+    paddingVertical: 10,
+    alignItems: 'center',
+    minWidth: 100,
+  },
+  textStyle: {
+    fontSize: 20,
+  },
+});
+
+export const Button = ({ title, color, onPress }: ButtonProps): JSX.Element => {
   return (
     <TouchableOpacity
       style={{
@@ -25,15 +37,3 @@ Button.defaultProps = {
   color: '#d3d3d3',
   title: '+',
 };
-
-const styles = StyleSheet.create({
-  button: {
-    borderWidth: 1,
-    paddingVertical: 10,
-    alignItems: 'center',
-    minWidth: 120,
-  },
-  textStyle: {
-    fontSize: 20,
-  },
-});
