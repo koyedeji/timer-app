@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from './buttons.component';
+import { millisecondsToHuman } from '../utils';
 
 interface TimerProps {
   elapsed: number;
@@ -77,6 +78,8 @@ export const Timer = ({
 
   const handleReset = () => onReset(id);
 
+  const elapsedString = millisecondsToHuman(elapsed);
+
   return (
     <View style={[styles.container]}>
       <View style={[styles.headerContainer]}>
@@ -85,7 +88,7 @@ export const Timer = ({
       </View>
 
       <View style={[styles.timerContainer]}>
-        <Text style={[styles.textBold, styles.textLarge]}>{elapsed}</Text>
+        <Text style={[styles.textBold, styles.textLarge]}>{elapsedString}</Text>
       </View>
 
       <View style={[styles.btnContainer]}>
